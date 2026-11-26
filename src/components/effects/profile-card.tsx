@@ -10,10 +10,13 @@ interface ProfileCardProps {
   miniAvatarUrl?: string;
   name?: string;
   title?: string;
+  bio?: string;
   handle?: string;
+  footerLabel?: string;
   status?: string;
   statusColor?: string;
   contactText?: string;
+  contactHref?: string;
   showUserInfo?: boolean;
   onContactClick?: () => void;
   theme?: Palette;
@@ -162,7 +165,7 @@ const SHIFT_STYLE: CSSProperties = {
 
 const SCRIM_STYLE: CSSProperties = {
   background:
-    'linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.57) 6%, rgba(0, 0, 0, 0.5) 12%, rgba(0, 0, 0, 0.4) 19%, rgba(0, 0, 0, 0.28) 26%, rgba(0, 0, 0, 0.16) 33%, rgba(0, 0, 0, 0.07) 40%, rgba(0, 0, 0, 0.02) 46%, rgba(0, 0, 0, 0) 52%)'
+    'linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.62) 14%, rgba(0, 0, 0, 0.4) 32%, rgba(0, 0, 0, 0.16) 48%, rgba(0, 0, 0, 0) 64%)'
 };
 
 const GLARE_STYLE: CSSProperties = {
@@ -181,15 +184,18 @@ const ROOT = 'relative w-[340px] max-w-full touch-pan-y [perspective:1000px] [-w
 const BODY =
   'relative flex flex-col gap-[10px] rounded-[calc(var(--pc-radius)+10px)] p-[10px] backdrop-blur-[20px] backdrop-saturate-[1.6] will-change-transform [background:var(--pc-frame)] [box-shadow:var(--pc-frame-shadow)] [transform:rotateX(var(--pc-rotate-x))_rotateY(var(--pc-rotate-y))]';
 const TILE =
-  'relative isolate aspect-[4/5] overflow-hidden rounded-[var(--pc-radius)] [background:var(--pc-backdrop)] [box-shadow:var(--pc-tile-shadow)]';
+  'relative isolate flex min-h-[28rem] flex-col justify-end overflow-hidden rounded-[var(--pc-radius)] [background:var(--pc-backdrop)] [box-shadow:var(--pc-tile-shadow)]';
 const LAYER = 'pointer-events-none absolute inset-0 rounded-[inherit]';
 const HOLO = `${LAYER} [mix-blend-mode:var(--pc-blend)]`;
 const HOLO_LAYER = 'absolute inset-0';
 const PHOTO =
   'pointer-events-none absolute inset-0 h-full w-full select-none object-cover object-[50%_32%]';
-const INFO = 'absolute bottom-[18px] left-5 right-5 text-white';
+const INITIALS =
+  'pointer-events-none absolute inset-x-0 top-[14%] text-center text-7xl font-semibold tracking-tight text-white/28 select-none';
+const INFO = 'relative z-[1] px-5 pt-16 pb-5 text-white';
 const NAME = 'm-0 text-[20px] font-semibold leading-[1.25] tracking-[-0.01em] text-[inherit]';
 const TITLE = 'mx-0 mb-0 mt-1 text-[14px] leading-[1.45] text-white/78';
+const BIO = 'mx-0 mb-0 mt-2 text-xs leading-5 text-white/80';
 const TILE_RIM = `${LAYER} [box-shadow:inset_0_0_0_1px_var(--pc-tile-edge),inset_0_1px_0_var(--pc-tile-highlight)]`;
 const FOOTER = 'flex min-w-0 items-center gap-3 px-5 pb-2 pt-1.5';
 const AVATAR =
@@ -198,14 +204,25 @@ const AVATAR_IMAGE = 'block h-full w-full object-cover object-top';
 const META = 'flex min-w-0 flex-1 flex-col gap-[3px]';
 const HANDLE =
   'overflow-hidden text-ellipsis whitespace-nowrap text-[14px] font-semibold leading-[1.25] text-[var(--pc-ink)]';
+const FOOTER_LABEL =
+  'line-clamp-2 text-[13px] font-semibold leading-[1.35] text-[var(--pc-ink)]';
 const STATUS =
   "flex items-center gap-1.5 whitespace-nowrap text-[12.5px] leading-[1.25] text-[var(--pc-muted)] before:h-1.5 before:w-1.5 before:flex-none before:rounded-full before:bg-[var(--pc-status)] before:content-['']";
 const CONTACT =
   'flex h-9 flex-none cursor-pointer items-center gap-1.5 rounded-[calc(var(--pc-radius)*0.75)] border-none px-3.5 font-[inherit] text-[13px] font-semibold text-[var(--pc-ink)] [background:var(--pc-tile)] [box-shadow:inset_0_0_0_1px_var(--pc-tile-edge),inset_0_1px_0_var(--pc-tile-highlight),var(--pc-tile-shadow)] transition-[filter,transform] duration-200 hover:[filter:var(--pc-hover)] active:scale-[0.96] active:duration-0 active:[filter:var(--pc-press)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pc-ink)]';
+const CONTACT_DISABLED =
+  'flex h-9 flex-none cursor-not-allowed items-center gap-1.5 rounded-[calc(var(--pc-radius)*0.75)] border-none px-3.5 font-[inherit] text-[13px] font-semibold text-[var(--pc-muted)] opacity-50 [background:var(--pc-tile)] [box-shadow:inset_0_0_0_1px_var(--pc-tile-edge),inset_0_1px_0_var(--pc-tile-highlight),var(--pc-tile-shadow)]';
 const GLARE = `${LAYER} mix-blend-overlay`;
 const RIM = `${LAYER} [box-shadow:inset_0_0_0_1px_var(--pc-frame-edge),inset_0_1px_0_var(--pc-frame-highlight)]`;
 
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+
+const initialsOf = (name: string) => {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  const first = parts[0]?.[0] ?? '';
+  const last = parts.length > 1 ? parts[parts.length - 1]?.[0] ?? '' : '';
+  return (first + last).toLocaleUpperCase('es');
+};
 
 const isDark = (color: string): boolean | null => {
   const match = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(color).trim());
@@ -221,10 +238,13 @@ const ProfileCard = ({
   miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'javicodes',
+  bio = '',
+  handle = '',
+  footerLabel = '',
   status = 'Online',
   statusColor = '#22c55e',
   contactText = 'Contact',
+  contactHref = '',
   showUserInfo = true,
   onContactClick,
   theme = 'dark',
@@ -240,6 +260,8 @@ const ProfileCard = ({
   intro = true,
   className = ''
 }: ProfileCardProps) => {
+  const contactEnabled = Boolean(contactHref?.trim() || onContactClick);
+
   const rootRef = useRef<HTMLDivElement>(null);
   const engineRef = useRef<Engine | null>(null);
   const settings = { enableTilt, tiltStrength, parallax, mobileTiltSensitivity, intro };
@@ -466,6 +488,7 @@ const ProfileCard = ({
     >
       <div className={BODY}>
         <div className={TILE}>
+          {!avatarUrl && name && <span className={INITIALS}>{initialsOf(name)}</span>}
           <span className={LAYER} style={SHEEN_STYLE} />
           <span className={HOLO} style={HOLO_STYLE}>
             <span className={HOLO_LAYER} style={GLOW_STYLE} />
@@ -486,13 +509,14 @@ const ProfileCard = ({
               <div className={INFO}>
                 {name && <h3 className={NAME}>{name}</h3>}
                 {title && <p className={TITLE}>{title}</p>}
+                {bio && <p className={BIO}>{bio}</p>}
               </div>
             </>
           )}
           <span className={TILE_RIM} />
         </div>
 
-        {showUserInfo && (
+        {showUserInfo && (footerLabel || handle || status || miniAvatarUrl || contactText) && (
           <div className={FOOTER}>
             {miniAvatarUrl && (
               <span className={AVATAR}>
@@ -500,15 +524,31 @@ const ProfileCard = ({
               </span>
             )}
             <div className={META}>
-              {handle && <span className={HANDLE}>@{handle}</span>}
+              {footerLabel && <span className={FOOTER_LABEL}>{footerLabel}</span>}
+              {!footerLabel && handle && <span className={HANDLE}>@{handle}</span>}
               {status && <span className={STATUS}>{status}</span>}
             </div>
             {contactText && (
               <button
                 type="button"
-                className={CONTACT}
-                onClick={onContactClick}
-                aria-label={name ? `${contactText} ${name}` : contactText}
+                className={contactEnabled ? CONTACT : CONTACT_DISABLED}
+                disabled={!contactEnabled}
+                onClick={() => {
+                  if (!contactEnabled) return;
+                  if (contactHref) {
+                    window.open(contactHref, '_blank', 'noopener,noreferrer');
+                  } else {
+                    onContactClick?.();
+                  }
+                }}
+                aria-label={
+                  contactEnabled
+                    ? name
+                      ? `${contactText} ${name}`
+                      : contactText
+                    : `${contactText} no disponible`
+                }
+                aria-disabled={!contactEnabled}
               >
                 <HugeiconsIcon icon={Mail01Icon} size={16} strokeWidth={1.8} />
                 {contactText}
