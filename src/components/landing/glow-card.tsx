@@ -21,7 +21,7 @@ export function GlowCard({
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-accent-soft/80 to-transparent" />
       <div className="pointer-events-none absolute inset-x-8 top-0 z-20 h-px bg-gradient-to-r from-transparent via-white/18 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-10 bg-gradient-to-b from-white/[0.05] to-transparent" />
-      <div className="relative z-10 h-full overflow-hidden rounded-2xl">{children}</div>
+      <div className="relative z-10 h-full min-h-0 rounded-2xl">{children}</div>
     </Tag>
   );
 }

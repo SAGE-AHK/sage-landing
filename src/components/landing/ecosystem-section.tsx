@@ -45,7 +45,7 @@ const nodes = [
 
 export function EcosystemSection() {
   return (
-    <section id="ecosistema" className="bg-sunken py-20 md:py-28">
+    <section id="ecosistema" className="bg-sunken py-14 md:py-28">
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <SectionHeading
           align="center"
@@ -53,15 +53,21 @@ export function EcosystemSection() {
           title="Cuatro piezas, una operación."
           text="La consola habla con la API. Los planos viven con el evento. EVA los usa para orientar a quien está en el venue."
         />
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
           {nodes.map((node, index) => (
             <Reveal key={node.title} delay={index * 80}>
-            <GlowCard className="h-full p-6">
-              <div className="flex size-12 items-center justify-center rounded-xl bg-panel-high">
-                <node.icon className={`size-6 ${node.accent}`} aria-hidden="true" />
+            <GlowCard className="h-full p-4 sm:p-6">
+              <div className="flex items-center justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <p className="font-mono text-[11px] tracking-wide text-faint uppercase">{node.kicker}</p>
+                  <h3 className="mt-1 text-base font-medium leading-snug transition-colors group-hover:text-accent-soft sm:text-lg">
+                    {node.title}
+                  </h3>
+                </div>
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-panel-high sm:size-11">
+                  <node.icon className={`size-5 ${node.accent} sm:size-6`} aria-hidden="true" />
+                </div>
               </div>
-              <p className="mt-5 font-mono text-[11px] tracking-wide text-faint uppercase">{node.kicker}</p>
-              <h3 className="mt-1 text-lg font-medium transition-colors group-hover:text-accent-soft">{node.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted">{node.text}</p>
               <p className="mt-5 flex items-center gap-2 font-mono text-xs text-live">
                 <span className="size-1.5 rounded-full bg-live" />

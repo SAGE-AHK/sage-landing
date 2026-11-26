@@ -42,19 +42,21 @@ const steps: {
 
 export function ProductStrip() {
   return (
-    <section id="producto" className="bg-sunken pt-8 pb-20 md:pt-12 md:pb-28">
-      <div className="mx-auto grid w-full max-w-[1440px] gap-4 px-4 sm:grid-cols-2 md:px-8 lg:grid-cols-4 lg:px-12">
+    <section id="producto" className="bg-sunken pt-8 pb-14 md:pt-12 md:pb-28">
+      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-2 gap-3 px-4 md:gap-4 md:px-8 lg:grid-cols-4 lg:px-12">
         {steps.map((step, index) => (
           <Reveal key={step.n} delay={index * 80}>
-          <GlowCard className="p-7">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-xs tracking-wide text-accent-soft">{step.n}</span>
-              <step.icon className="size-6 text-accent-soft" aria-hidden="true" />
+          <GlowCard className="px-4 py-5 sm:p-7">
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex min-w-0 flex-1 items-baseline gap-2">
+                <span className="shrink-0 font-mono text-xs tracking-wide text-accent-soft">{step.n}</span>
+                <h2 className="min-w-0 flex-1 text-base font-medium leading-snug text-ink transition-colors group-hover:text-accent-soft sm:text-lg">
+                  {step.title}
+                </h2>
+              </div>
+              <step.icon className="size-5 shrink-0 text-accent-soft sm:size-6" aria-hidden="true" />
             </div>
-            <h2 className="mt-4 text-lg font-medium text-ink transition-colors group-hover:text-accent-soft">
-              {step.title}
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-muted">{step.text}</p>
+            <p className="mt-3 text-sm leading-6 text-muted">{step.text}</p>
           </GlowCard>
           </Reveal>
         ))}

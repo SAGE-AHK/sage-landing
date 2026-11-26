@@ -160,13 +160,6 @@ const SHIFT_STYLE: CSSProperties = {
   opacity: 'calc(var(--pc-active) * var(--pc-holo-detail))'
 };
 
-const PHOTO_STYLE: CSSProperties = {
-  inset: 'calc(var(--pc-parallax) * -1)',
-  width: 'calc(100% + var(--pc-parallax) * 2)',
-  height: 'calc(100% + var(--pc-parallax) * 2)',
-  transform: 'translate3d(var(--pc-shift-x), var(--pc-shift-y), 0)'
-};
-
 const SCRIM_STYLE: CSSProperties = {
   background:
     'linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.57) 6%, rgba(0, 0, 0, 0.5) 12%, rgba(0, 0, 0, 0.4) 19%, rgba(0, 0, 0, 0.28) 26%, rgba(0, 0, 0, 0.16) 33%, rgba(0, 0, 0, 0.07) 40%, rgba(0, 0, 0, 0.02) 46%, rgba(0, 0, 0, 0) 52%)'
@@ -192,7 +185,8 @@ const TILE =
 const LAYER = 'pointer-events-none absolute inset-0 rounded-[inherit]';
 const HOLO = `${LAYER} [mix-blend-mode:var(--pc-blend)]`;
 const HOLO_LAYER = 'absolute inset-0';
-const PHOTO = 'pointer-events-none absolute select-none object-cover object-bottom';
+const PHOTO =
+  'pointer-events-none absolute inset-0 h-full w-full select-none object-cover object-[50%_32%]';
 const INFO = 'absolute bottom-[18px] left-5 right-5 text-white';
 const NAME = 'm-0 text-[20px] font-semibold leading-[1.25] tracking-[-0.01em] text-[inherit]';
 const TITLE = 'mx-0 mb-0 mt-1 text-[14px] leading-[1.45] text-white/78';
@@ -480,7 +474,6 @@ const ProfileCard = ({
           {avatarUrl && (
             <img
               className={PHOTO}
-              style={PHOTO_STYLE}
               src={avatarUrl}
               alt={name || ''}
               loading="lazy"

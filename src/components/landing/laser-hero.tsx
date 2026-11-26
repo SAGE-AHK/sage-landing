@@ -24,7 +24,7 @@ function readPreviewMode(webgl: boolean): PreviewMode {
 function readBeamPosition() {
   if (window.matchMedia("(min-width: 1024px)").matches) return 0.68;
   if (window.matchMedia("(min-width: 768px)").matches) return 0.62;
-  return 0.55;
+  return 0.8;
 }
 
 export function LaserHero() {
@@ -99,13 +99,13 @@ export function LaserHero() {
         </div>
 
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-semibold tracking-tight text-ink max-md:[text-shadow:0_0_18px_#0e0e10] md:text-6xl md:leading-[1.05]">
+          <h1 className="max-w-[calc(100%-7rem)] text-3xl leading-tight font-semibold tracking-tight text-ink max-md:[text-shadow:0_0_18px_#0e0e10] md:max-w-none md:text-6xl md:leading-[1.05]">
             Gestioná el evento entero desde{" "}
             <span className="bg-gradient-to-r from-accent-soft via-accent to-live bg-clip-text text-transparent max-md:[text-shadow:0_0_18px_#0e0e10]">
               un solo panel.
             </span>
           </h1>
-          <p className="mt-5 max-w-md text-base leading-7 text-muted max-md:[text-shadow:0_0_18px_#0e0e10] md:text-lg">
+          <p className="mt-5 max-w-[calc(100%-7rem)] text-base leading-7 text-muted max-md:[text-shadow:0_0_18px_#0e0e10] md:max-w-md md:text-lg">
             Invitados, proveedores y planos del venue, con satisfacción, flujo y ocupación
             mientras el evento ocurre. EVA orienta a quien llega.
           </p>
@@ -115,7 +115,7 @@ export function LaserHero() {
 
       <div
         ref={cardRef}
-        className="relative z-10 mx-auto mt-6 w-[min(1100px,92vw)] overflow-hidden rounded-t-3xl border border-b-0 border-white/10 bg-[#0b0b0d] shadow-[0_-24px_80px_-20px_rgba(91,141,239,0.45)] md:mt-10 md:w-[min(1100px,84vw)]"
+        className="relative z-10 mx-4 mt-6 overflow-hidden rounded-t-3xl border border-b-0 border-white/10 bg-[#0b0b0d] shadow-[0_-24px_80px_-20px_rgba(91,141,239,0.45)] md:mx-auto md:mt-10 md:w-[min(1100px,84vw)]"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-accent-soft to-transparent" />
         <div className="flex h-11 items-center gap-2 border-b border-white/10 bg-black/35 px-4 backdrop-blur-md">

@@ -21,7 +21,7 @@ const phases = [
 
 export function FeaturesSection() {
   return (
-    <section id="funciones" className="bg-canvas py-20 md:py-28">
+    <section id="funciones" className="bg-canvas py-14 md:py-28">
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <Reveal>
           <SectionHeading
@@ -31,9 +31,9 @@ export function FeaturesSection() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
           <Reveal className="md:col-span-2 lg:col-span-3" delay={80}>
-          <GlowCard className="overflow-hidden p-7 lg:p-8">
+          <GlowCard className="overflow-hidden p-4 sm:p-7 lg:p-8">
             <div
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_100%_0%,rgba(91,141,239,0.18),transparent_62%)]"
               aria-hidden
@@ -47,7 +47,7 @@ export function FeaturesSection() {
             <h3 className="mt-5 text-2xl font-medium tracking-tight transition-colors group-hover:text-accent-soft">
               Del armado al cierre
             </h3>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-muted md:text-base">
+            <p className="mt-3 max-w-xl text-base leading-7 text-muted">
               Un evento próximo se prepara en la consola. Cuando arranca, el dashboard pasa a
               lectura en vivo. Al terminar, queda la variante finalizada del mismo evento.
             </p>
@@ -95,7 +95,7 @@ export function FeaturesSection() {
           />
 
           <Reveal className="md:col-span-2" delay={0}>
-          <GlowCard className="p-7 lg:p-8">
+          <GlowCard className="p-4 sm:p-7 lg:p-8">
             <div className="flex items-center justify-between">
               <span className="rounded-md bg-live/10 px-2 py-1 font-mono text-[11px] tracking-wide text-live uppercase">
                 EVA
@@ -105,7 +105,7 @@ export function FeaturesSection() {
             <h3 className="mt-5 text-2xl font-medium tracking-tight transition-colors group-hover:text-accent-soft">
               Recepción dentro del venue
             </h3>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-muted md:text-base">
+            <p className="mt-3 max-w-xl text-base leading-7 text-muted">
               EVA es el asistente del evento. Responde consultas, orienta con el plano y junta
               feedback. Corre con modelos locales, sin una API de lenguaje externa en runtime.
             </p>
@@ -178,12 +178,16 @@ function FeatureCard({
 }) {
   return (
     <Reveal delay={delay}>
-    <GlowCard className="flex h-full flex-col p-7">
-      <div className="flex items-center justify-between">
-        <span className="font-mono text-[11px] tracking-wide text-faint uppercase">{kicker}</span>
-        <Icon className="size-5 text-accent-soft" aria-hidden="true" />
+    <GlowCard className="flex h-full flex-col p-4 sm:p-7">
+      <div className="flex items-center justify-between gap-2">
+        <div className="min-w-0 flex-1">
+          <span className="font-mono text-[11px] tracking-wide text-faint uppercase">{kicker}</span>
+          <h3 className="mt-1 text-base font-medium leading-snug transition-colors group-hover:text-accent-soft sm:text-lg">
+            {title}
+          </h3>
+        </div>
+        <Icon className="size-5 shrink-0 text-accent-soft sm:size-6" aria-hidden="true" />
       </div>
-      <h3 className="mt-5 text-lg font-medium transition-colors group-hover:text-accent-soft">{title}</h3>
       <p className="mt-2 text-sm leading-6 text-muted">{text}</p>
     </GlowCard>
     </Reveal>

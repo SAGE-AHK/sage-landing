@@ -25,8 +25,8 @@ export function SiteFooter() {
     <footer className="border-t border-white/5 bg-sunken">
       <Reveal>
       <div className="mx-auto w-full max-w-[1440px] px-4 py-14 md:px-8 lg:px-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-10">
+          <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5">
               <img src="/sage-logo.svg" alt="" className="h-7 w-auto" />
               <span className="font-semibold">SAGE</span>
