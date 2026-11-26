@@ -45,7 +45,7 @@ const nodes = [
 
 export function EcosystemSection() {
   return (
-    <section id="ecosistema" className="bg-sunken py-14 md:py-28">
+    <section id="ecosistema" className="bg-canvas py-14 md:py-28">
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <SectionHeading
           align="center"

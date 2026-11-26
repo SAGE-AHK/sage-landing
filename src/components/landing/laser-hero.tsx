@@ -122,7 +122,7 @@ export function LaserHero() {
           <span className="size-2.5 rounded-full bg-white/15" />
           <span className="size-2.5 rounded-full bg-white/15" />
           <span className="size-2.5 rounded-full bg-white/15" />
-          <span className="ml-3 font-mono text-[11px] tracking-wide text-faint">Panel en vivo</span>
+          <span className="ml-3 font-mono text-[11px] tracking-wide text-faint">Sistema de gestión</span>
         </div>
         <div className="relative h-[300px] sm:h-[380px] md:h-[460px]">
           <img

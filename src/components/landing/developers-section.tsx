@@ -5,7 +5,7 @@ import { team } from "./team";
 
 export function DevelopersSection() {
   return (
-    <section id="desarrolladores" className="bg-canvas py-14 md:py-28">
+    <section id="desarrolladores" className="bg-canvas pt-8 pb-14 md:pt-14 md:pb-28">
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <Reveal>
           <SectionHeading

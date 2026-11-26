@@ -14,8 +14,8 @@ export default function App() {
       <main>
         <LaserHero />
         <ProductStrip />
-        <FeaturesSection />
         <EcosystemSection />
+        <FeaturesSection />
         <DevelopersSection />
       </main>
       <SiteFooter />

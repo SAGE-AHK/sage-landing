@@ -44,7 +44,7 @@ body {
 
 @supports not (backdrop-filter: blur(1px)) {
   .glow-card-glass {
-    background-color: color-mix(in srgb, var(--color-panel) 85%, transparent);
+    background-color: color-mix(in srgb, var(--color-panel) 50%, transparent);
   }
 }
 
