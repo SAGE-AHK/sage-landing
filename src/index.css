@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --color-ink: #e5e1e4;
+  --color-muted: #c3c6d4;
+  --color-faint: #8d909e;
+  --color-canvas: #131315;
+  --color-sunken: #0e0e10;
+  --color-panel: #1b1b1d;
+  --color-panel-high: #2a2a2c;
+  --color-line: #424752;
+  --color-accent: #5b8def;
+  --color-accent-soft: #aec6ff;
+  --color-live: #3cddc7;
+}
+
+html {
+  background: var(--color-canvas);
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  color: white;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .glow-card-glass {
+    background-color: color-mix(in srgb, var(--color-panel) 85%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
