@@ -9,6 +9,23 @@ import { vitePrerenderPlugin } from "vite-prerender-plugin";
 const siteTitle = "SAGE — Gestión de eventos";
 const siteDescription =
   "SAGE es el panel para operar un evento: invitados, proveedores, planos y métricas en vivo, con EVA en el venue.";
+const ogImageAlt =
+  "SAGE: gestioná el evento entero desde un solo panel, con operación en vivo y preview del sistema.";
+
+function resolveSiteUrl(env: Record<string, string>): string {
+  const explicit = (process.env.VITE_SITE_URL ?? env.VITE_SITE_URL ?? "").trim();
+  if (explicit) return explicit.replace(/\/$/, "");
+
+  const vercelHost = (
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.VERCEL_URL ??
+    ""
+  ).trim();
+  if (!vercelHost) return "";
+
+  const host = vercelHost.replace(/^https?:\/\//i, "").replace(/\/$/, "");
+  return `https://${host}`;
+}
 
 function escapeAttr(value: string) {
   return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
@@ -51,6 +68,7 @@ function seoPlugin(siteUrl: string): Plugin {
     `<meta property="og:description" content="${escapeAttr(siteDescription)}" />`,
     pageUrl ? `<meta property="og:url" content="${escapeAttr(pageUrl)}" />` : "",
     `<meta property="og:image" content="${escapeAttr(imageUrl)}" />`,
+    `<meta property="og:image:alt" content="${escapeAttr(ogImageAlt)}" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
@@ -123,7 +141,7 @@ function seoPlugin(siteUrl: string): Plugin {
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "VITE_");
-  const siteUrl = (process.env.VITE_SITE_URL ?? env.VITE_SITE_URL ?? "").trim();
+  const siteUrl = resolveSiteUrl(env);
   const prerenderScript = fileURLToPath(new URL("./src/prerender.tsx", import.meta.url));
 
   return {
