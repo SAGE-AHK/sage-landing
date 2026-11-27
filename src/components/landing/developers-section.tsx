@@ -14,7 +14,7 @@ function formatTeamsFooter(teams: string) {
 
 export function DevelopersSection() {
   return (
-    <section id="desarrolladores" className="bg-sunken pt-6 pb-14 md:pt-10 md:pb-28">
+    <section id="desarrolladores" className="overflow-x-clip bg-sunken pt-6 pb-14 md:pt-10 md:pb-28">
       <div className="mb-8 md:mb-10">
         <TechStackLoop />
       </div>

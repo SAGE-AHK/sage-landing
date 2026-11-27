@@ -30,14 +30,14 @@ function readBeamPosition() {
 export function LaserHero() {
   const cardRef = useRef<HTMLDivElement>(null);
   const webglRef = useRef(false);
-  const [mode, setMode] = useState<PreviewMode>(() => {
-    const webgl = supportsWebGL2();
-    webglRef.current = webgl;
-    return readPreviewMode(webgl);
-  });
-  const [beamPosition, setBeamPosition] = useState(readBeamPosition);
+  const [laserOn, setLaserOn] = useState(false);
+  const [mode, setMode] = useState<PreviewMode>("still");
+  const [beamPosition, setBeamPosition] = useState(0.8);
 
   useEffect(() => {
+    const webgl = supportsWebGL2();
+    webglRef.current = webgl;
+    setLaserOn(webgl);
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     const wide = window.matchMedia("(min-width: 768px)");
     const desktop = window.matchMedia("(min-width: 1024px)");
@@ -63,7 +63,7 @@ export function LaserHero() {
   return (
     <section id="inicio" className="relative overflow-hidden bg-sunken">
       <div className="pointer-events-none absolute inset-0 z-0">
-        {webglRef.current && (
+        {laserOn && (
           <LaserFlow
             surfaceRef={cardRef}
             beamPosition={beamPosition}
@@ -129,6 +129,9 @@ export function LaserHero() {
             src="/preview-system.png"
             alt="Panel de un evento en vivo en SAGE: satisfacción, flujo de participantes y ocupación."
             className="h-full w-full object-cover object-left-top"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-35% via-sunken/55 to-sunken" />
         </div>

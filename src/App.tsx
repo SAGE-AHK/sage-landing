@@ -11,8 +11,11 @@ import { SiteHeader } from "./components/landing/site-header";
 export default function App() {
   return (
     <div className="min-h-full bg-canvas font-sans text-ink antialiased">
+      <a className="skip-link" href="#contenido-principal">
+        Saltar al contenido
+      </a>
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <LaserHero />
         <ProductStrip />
         <EcosystemSection />

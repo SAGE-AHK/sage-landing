@@ -33,6 +33,8 @@ export function EvaSection() {
                 src="/EVA.png"
                 alt="EVA, el asistente del evento"
                 className="h-full w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

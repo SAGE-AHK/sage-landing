@@ -64,7 +64,7 @@ const techLogos: LogoItem[] = [
 
 export function TechStackLoop() {
   return (
-    <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
+    <div className="w-full overflow-x-clip">
       <div className="h-14 md:h-16">
         <LogoLoop
           logos={techLogos}

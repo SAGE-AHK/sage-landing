@@ -161,6 +161,7 @@ export const teamGroups: TeamGroup[] = [
         teams: "Analytics",
         aporte:
           "Responsable de cámaras Xovis. Planificó su instalación, configuró y validó el conteo de personas y colaboró en el procesamiento y guardado de datos de ingresos, egresos y ocupación.",
+        avatarUrl: "/team/matias-martyn.png",
       },
     ],
   },
