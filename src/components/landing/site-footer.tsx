@@ -7,6 +7,7 @@ const columns = [
     links: [
       { href: "#producto", label: "Capacidades" },
       { href: "#funciones", label: "Funciones" },
+      { href: "#eva", label: "EVA" },
       { href: "#ecosistema", label: "Ecosistema" },
     ],
   },
@@ -22,7 +23,7 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 bg-sunken">
+    <footer className="border-t border-white/5 bg-black/50">
       <Reveal>
       <div className="mx-auto w-full max-w-[1440px] px-4 py-14 md:px-8 lg:px-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-10">

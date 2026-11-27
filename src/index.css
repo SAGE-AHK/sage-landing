@@ -48,6 +48,53 @@ body {
   }
 }
 
+.eva-image-glow {
+  position: relative;
+  isolation: isolate;
+  border-radius: 1.5rem;
+}
+
+.eva-image-glow::before,
+.eva-image-glow::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+  top: calc(var(--eva-glow-pad, 5px) / -2);
+  left: calc(var(--eva-glow-pad, 5px) / -2);
+  width: calc(100% + var(--eva-glow-pad, 5px));
+  height: calc(100% + var(--eva-glow-pad, 5px));
+  background:
+    radial-gradient(circle at 0 0, hsl(195deg 95% 62%), transparent 58%),
+    radial-gradient(circle at 100% 0, #5b8def, transparent 58%),
+    radial-gradient(circle at 0 100%, #3b82f6, transparent 58%),
+    radial-gradient(circle at 100% 100%, #4338ca, transparent 58%);
+}
+
+.eva-image-glow::after {
+  --eva-glow-pad: 4px;
+  z-index: -1;
+}
+
+.eva-image-glow::before {
+  --eva-glow-pad: 14px;
+  z-index: -2;
+  filter: blur(1.75rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .eva-image-glow::before {
+    animation: eva-glow-pulse 3.5s ease-in-out alternate infinite;
+  }
+}
+
+@keyframes eva-glow-pulse {
+  to {
+    filter: blur(2.5rem);
+    transform: scale(1.04);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;

@@ -1,5 +1,6 @@
 
 import { DevelopersSection } from "./components/landing/developers-section";
+import { EvaSection } from "./components/landing/eva-section";
 import { EcosystemSection } from "./components/landing/ecosystem-section";
 import { FeaturesSection } from "./components/landing/features-section";
 import { LaserHero } from "./components/landing/laser-hero";
@@ -16,6 +17,7 @@ export default function App() {
         <ProductStrip />
         <EcosystemSection />
         <FeaturesSection />
+        <EvaSection />
         <DevelopersSection />
       </main>
       <SiteFooter />

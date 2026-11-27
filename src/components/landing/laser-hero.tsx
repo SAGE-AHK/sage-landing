@@ -67,7 +67,7 @@ export function LaserHero() {
           <LaserFlow
             surfaceRef={cardRef}
             beamPosition={beamPosition}
-            color="#5b8def"
+            color="#4080f5"
             intensity={1.8}
             beamWidth={1.5}
             flare={1.5}
@@ -85,7 +85,7 @@ export function LaserHero() {
           />
         )}
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(91,141,239,0.14)_1px,transparent_1px)] bg-[size:28px_28px] opacity-25" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(64,128,245,0.17)_1px,transparent_1px)] bg-[size:28px_28px] opacity-30" />
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 pt-24 md:px-8 md:pt-28 lg:px-12 lg:pt-24">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-panel/80 px-3 py-1.5 backdrop-blur-md">
           <span className="relative flex size-2">
@@ -115,7 +115,7 @@ export function LaserHero() {
 
       <div
         ref={cardRef}
-        className="relative z-10 mx-4 mt-6 overflow-hidden rounded-t-3xl border border-b-0 border-white/10 bg-[#0b0b0d] shadow-[0_-24px_80px_-20px_rgba(91,141,239,0.45)] md:mx-auto md:mt-10 md:w-[min(1100px,84vw)]"
+        className="relative z-10 mx-4 mt-6 overflow-hidden rounded-t-3xl border border-b-0 border-white/10 bg-[#0b0b0d] shadow-[0_-24px_80px_-20px_rgba(64,128,245,0.5)] md:mx-auto md:mt-10 md:w-[min(1100px,84vw)]"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-accent-soft to-transparent" />
         <div className="flex h-11 items-center gap-2 border-b border-white/10 bg-black/35 px-4 backdrop-blur-md">

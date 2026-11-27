@@ -13,14 +13,14 @@ function formatTeamsFooter(teams: string) {
 
 export function DevelopersSection() {
   return (
-    <section id="desarrolladores" className="bg-canvas pt-8 pb-14 md:pt-14 md:pb-28">
+    <section id="desarrolladores" className="bg-sunken pt-6 pb-14 md:pt-10 md:pb-28">
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <Reveal>
           <SectionHeading
             align="center"
             eyebrow="Desarrolladores"
-            title="Quiénes arman SAGE."
-            text="Quince personas entre frontend, backend, IA y analítica."
+            title="El equipo detrás de SAGE."
+            text="Frontend, backend, IA y analítica."
           />
         </Reveal>
         <div className="mt-14 flex flex-col gap-16">

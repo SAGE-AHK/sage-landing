@@ -234,7 +234,7 @@ void main() {
   vec3 haloK = mix(BEAM, sideK, exp(-hp / 80.0));
   col += (BEAM * beamCore + haloK * beamHalo) * top * above * drop;
   float head = exp(-sq((p.y - front) / 24.0)) * falling;
-  col += mix(WHITE, BEAM, 0.35) * head * (7.0 * exp(-adx / (2.6 * beamWidth)) + 1.0 * exp(-adx / (14.0 * beamWidth)));
+  col += mix(WHITE, BEAM, 0.52) * head * (7.0 * exp(-adx / (2.6 * beamWidth)) + 1.0 * exp(-adx / (14.0 * beamWidth)));
 
   float psi = adx * (outline + 1.0);
   float rise = max(hp - 17.9 * flare, 0.0);

@@ -31,7 +31,7 @@ const phases = [
 
 export function FeaturesSection() {
   return (
-    <section id="funciones" className="bg-sunken pt-14 pb-14 md:pt-28 md:pb-20">
+    <section id="funciones" className="bg-sunken pt-14 pb-8 md:pt-28 md:pb-12">
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <Reveal>
           <SectionHeading
