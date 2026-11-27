@@ -165,7 +165,7 @@ const SHIFT_STYLE: CSSProperties = {
 
 const SCRIM_STYLE: CSSProperties = {
   background:
-    'linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.62) 14%, rgba(0, 0, 0, 0.4) 32%, rgba(0, 0, 0, 0.16) 48%, rgba(0, 0, 0, 0) 64%)'
+    'linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.78) 16%, rgba(0, 0, 0, 0.58) 34%, rgba(0, 0, 0, 0.28) 52%, rgba(0, 0, 0, 0.08) 68%, rgba(0, 0, 0, 0) 78%)'
 };
 
 const GLARE_STYLE: CSSProperties = {

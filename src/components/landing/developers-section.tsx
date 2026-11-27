@@ -1,6 +1,7 @@
 import ProfileCard from "../effects/profile-card";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
+import { TechStackLoop } from "./tech-stack-loop";
 import { teamGroups } from "./team";
 
 function formatTeamsFooter(teams: string) {
@@ -14,6 +15,9 @@ function formatTeamsFooter(teams: string) {
 export function DevelopersSection() {
   return (
     <section id="desarrolladores" className="bg-sunken pt-6 pb-14 md:pt-10 md:pb-28">
+      <div className="mb-8 md:mb-10">
+        <TechStackLoop />
+      </div>
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-12">
         <Reveal>
           <SectionHeading

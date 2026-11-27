@@ -54,6 +54,7 @@ export const teamGroups: TeamGroup[] = [
           "Implementó invitaciones con QR, acreditación y sincronización con EVA, navegación interior y autenticación con Auth0. Automatizó el despliegue con Docker y GitHub Actions.",
         contactUrl: "https://santiago-calvelo.github.io/curriculum",
         contactLabel: "CV",
+        avatarUrl: "/team/santiago-calvelo.png",
       },
       {
         name: "Leandro Laiker",
@@ -88,6 +89,7 @@ export const teamGroups: TeamGroup[] = [
         career: "Sistemas IT",
         teams: "Backend / Gestión",
         aporte: "Realizó pruebas de calidad (QA) y trabajó en integraciones.",
+        avatarUrl: "/team/nahuel-herrera.png",
       },
     ],
   },
@@ -128,6 +130,8 @@ export const teamGroups: TeamGroup[] = [
         aporte:
           "Coordinó equipos, tareas y prioridades. Desarrolló las vistas de invitados, grupos, importación CSV y cuenta, y colaboró en conectar los dashboards de métricas con datos reales.",
         avatarUrl: "/team/nancy-figueredo.jpg",
+        contactUrl: "https://www.linkedin.com/in/nancy-figueredo-869172314/",
+        contactLabel: "LinkedIn",
       },
       {
         name: "Luca Villani",

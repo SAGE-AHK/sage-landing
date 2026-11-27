@@ -9,9 +9,9 @@ const mobileNavLinkClass =
 
 const links = [
   { href: "#producto", label: "Producto" },
+  { href: "#ecosistema", label: "Ecosistema" },
   { href: "#funciones", label: "Funciones" },
   { href: "#eva", label: "EVA" },
-  { href: "#ecosistema", label: "Ecosistema" },
   { href: "#desarrolladores", label: "Desarrolladores" },
 ];
 
